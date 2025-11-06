@@ -1,0 +1,230 @@
+/* --------------------------------
+   Variables Globales y Fuentes
+----------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #007bff; /* Azul brillante, inspirado en la bandera */
+    --secondary-color: #212529; /* Negro/Gris oscuro para texto, del logo */
+    --light-bg: #f8f9fa; /* Un gris muy claro, casi blanco */
+    --accent-color: #fcd116; /* Amarillo/Dorado del sol */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--secondary-color);
+    background-color: #ffffff; /* Fondo blanco limpio */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* --------------------------------
+   Estilos de Bootstrap (Overrides)
+----------------------------------- */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #005ec2; /* Un azul un poco más oscuro */
+    border-color: #005ec2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-outline-light:hover {
+    color: var(--dark-bg);
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* --------------------------------
+   Componentes Personalizados
+----------------------------------- */
+
+/* --- Navbar --- */
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    display: flex; /* Para alinear el logo y el texto */
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 40px; /* Ajusta el tamaño del logo en el navbar */
+    width: auto;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease; /* <-- Transición añadida */
+}
+
+.navbar-logo:hover { /* <-- Bloque añadido */
+    transform: scale(1.05);
+}
+
+.navbar .nav-link {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    position: relative; /* <-- Añadido para el trazo */
+    transition: color 0.3s ease; /* <-- Transición añadida */
+}
+
+.navbar .nav-link:hover { /* <-- Bloque añadido */
+    color: var(--accent-color) !important;
+}
+
+.navbar .nav-link::after { /* <-- Bloque añadido (efecto trazo) */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after { /* <-- Bloque añadido */
+    width: 100%;
+}
+
+
+.navbar .nav-link.active {
+    color: var(--accent-color) !important; /* Amarillo del sol para destacar */
+}
+
+/* --- Hero Section (Landing) --- */
+.hero-section {
+    min-height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('https://placehold.co/1920x1080/007bff/ffffff?text=Gran+Parrillada+Uruguaya') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+/* --- Page Headers (Otras páginas) --- */
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://placehold.co/1920x400/007bff/ffffff?text=Posta+Uruguaya') no-repeat center center;
+    background-size: cover;
+}
+
+/* --- Tarjeta de Producto (Menú) --- */
+.product-card {
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important;
+}
+
+/* --- Animación Iconos Features (Landing) --- */ /* <-- Bloque añadido */
+.card .bi {
+    transition: all 0.3s ease;
+}
+
+.card:hover .bi {
+    transform: scale(1.1);
+}
+
+/* --- Overlay Carrusel --- */
+.bg-dark-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+/* --- Botón Flotante WhatsApp (Contexto.docx) --- */
+.whatsapp-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1050;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite; /* <-- Animación de pulso añadida */
+}
+
+.whatsapp-flotante:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    animation: none; /* <-- Detiene el pulso al pasar el ratón */
+}
+
+/* --- Animación de Pulso --- */ /* <-- Bloque añadido */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* --- Footer --- */
+footer a.text-white-50 { /* <-- Añadido */
+    transition: color 0.3s ease;
+}
+
+footer a.text-white-50:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+.fs-4 a { 
+    transition: all 0.3s ease;
+}
+
+.fs-4 a:hover { /* <-- Bloque añadido */
+    transform: scale(1.1);
+    /* Se quitó el color: #ffffff !important; */
+}
+
+/* --- Colores de marca para iconos sociales --- */ /* <-- Bloque añadido */
+.fs-4 a:hover .bi-facebook {
+    color: #1877F2;
+     /* Color de Facebook */
+}
+.fs-4 a:hover .bi-instagram {
+    color: #E4405F; /* Color de Instagram */
+}
+.fs-4 a:hover .bi-tripadvisor {
+    color: #34E0A1; /* Color de Tripadvisor */
+}
+
+.footer-logo {
+    height: 80px; /* Ajusta el tamaño del logo en el footer */
+    width: auto;
+}
