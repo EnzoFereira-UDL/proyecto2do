@@ -7,7 +7,6 @@ Variables Globales y Fuentes
  */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap');
 
-
 :root {
 
 /* Paleta de colores rústica/uruguaya (ACTUALIZADA POR EL USUARIO) */
@@ -20,7 +19,6 @@ Variables Globales y Fuentes
 --font-heading: 'Montserrat', sans-serif;
 --font-body: 'Lato', sans-serif;
 --font-brand: 'Cinzel', serif; /* Fuente elegante para el brand */
-
 }
 
 
@@ -29,24 +27,22 @@ Estilos Generales y Responsividad
 ----------------------------------- */
 
 body {
-font-family: var(--font-body);
-color: var(--secondary-color);
-background-color: #ffffff; 
+  font-family: var(--font-body);
+  color: var(--secondary-color);
+  background-color: #ffffff; 
 }
 
-/* Ajuste de fuentes responsivo (solicitado por el usuario) */
+/* Ajuste de fuentes responsivo */
 h1, .h1, h2, .h2, h3, .h3 {
-font-family: var(--font-heading);
-font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 700;
 }
 
-/* Clases de display más grandes en móviles */
 @media (max-width: 768px) {
-.display-3 { font-size: 2.5rem; }
-.display-4 { font-size: 2.25rem; }
-.display-5 { font-size: 2rem; }
+  .display-3 { font-size: 2.5rem; }
+  .display-4 { font-size: 2.25rem; }
+  .display-5 { font-size: 2rem; }
 }
-
 
 
 /* --------------------------------
@@ -54,181 +50,188 @@ Estilos de Bootstrap (Overrides)
 ----------------------------------- */
 
 .btn-primary {
-background-color: var(--primary-color);
-border-color: var(--primary-color);
-padding: 0.75rem 1.5rem;
-font-weight: bold;
-text-transform: uppercase;
-letter-spacing: 0.5px;
-transition: all 0.3s ease;
-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .btn-primary:hover {
-background-color: #1a61c5; /* Celeste más oscuro */
-border-color: #1752a3;
-transform: translateY(-3px); /* Efecto hover solicitado */
-box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background-color: #1a61c5;
+  border-color: #1752a3;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .btn-outline-light:hover {
-background-color: #ffffff;
-color: var(--secondary-color);
+  background-color: #ffffff;
+  color: var(--secondary-color);
 }
 
-/* Inputs de formulario mejorados */
 .form-control:focus, .form-select:focus {
-border-color: var(--primary-color);
-box-shadow: 0 0 0 0.25rem rgba(50, 136, 255, 0.25); /* Sombra con el color celeste */
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(50, 136, 255, 0.25);
 }
 
-.text-primary {
-color: var(--primary-color) !important;
-}
-
-.bg-primary {
-background-color: var(--primary-color) !important;
-}
-
-.text-accent {
-color: var(--accent-color) !important;
-}
+.text-primary { color: var(--primary-color) !important; }
+.bg-primary { background-color: var(--primary-color) !important; }
+.text-accent { color: var(--accent-color) !important; }
 
 
 /* --------------------------------
 Componentes Personalizados
 ----------------------------------- */
 
-
 /* --- Navbar --- */
-
 .navbar-brand {
-/*
- * CAMBIO AÑADIDO:
- * Se aplica la fuente elegante solicitada.
- */
-font-family: var(--font-brand);
-font-weight: 700;
-font-size: 1.75rem; /* Un poco más grande para la nueva fuente */
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 1.75rem;
 }
 
 .navbar-logo {
-height: 40px;
-width: auto;
+  height: 40px;
+  width: auto;
 }
 
-/* Menú lateral (Offcanvas) */
-.offcanvas {
-max-width: 80%;
-}
+.offcanvas { max-width: 80%; }
 
 @media (min-width: 992px) {
-/* Oculta el offcanvas en escritorio, usa el colapso normal */
-.offcanvas-lg {
-display: none;
-}
-.navbar-collapse.collapse {
-display: flex !important;
-}
+  .offcanvas-lg { display: none; }
+  .navbar-collapse.collapse { display: flex !important; }
 }
 
 @media (max-width: 991.98px) {
-/* Oculta el menú normal en móvil, usa el botón de offcanvas */
-.navbar-collapse {
-display: none !important;
-}
+  .navbar-collapse { display: none !important; }
 }
 
 
-/* --- Hero Section (index.html) --- */
+/* --- Hero Section --- */
 .hero-section {
-min-height: 80vh;
-background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../resources/img/hero-background-parrilla.jpg') no-repeat center center;
-background-size: cover;
+  min-height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('../resources/img/hero-background-parrilla.jpg') no-repeat center center;
+  background-size: cover;
 }
 
 
-/* --- Page Header (about, menu, contactus) --- */
+/* --- Page Header --- */
 .page-header {
-padding: 6rem 0;
-background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../resources/img/header-background-madera.jpg') no-repeat center center;
-background-size: cover;
-background-attachment: fixed; /* Efecto parallax */
+  padding: 6rem 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url('../resources/img/header-background-madera.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 
-/* --- Tarjetas (Dinamismo solicitado) --- */
+/* --- Tarjetas --- */
 .card {
-border: none;
-transition: all 0.3s ease;
+  border: none;
+  transition: all 0.3s ease;
 }
 
 .card-hover:hover {
-transform: translateY(-8px); /* Efecto hover solicitado */
-box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .product-card img {
-height: 250px;
-object-fit: cover; /* Asegura que la imagen llene el espacio */
+  height: 250px;
+  object-fit: cover;
 }
 
 
-/* --- Footer (Dinamismo solicitado) --- */
-.footer-link {
-transition: color 0.3s ease;
-}
-.footer-link:hover {
-color: #ffffff !important;
-text-decoration: underline !important;
-}
-.social-icon {
-transition: all 0.3s ease;
-}
-.social-icon:hover {
-color: var(--accent-color) !important;
-transform: scale(1.1);
-}
+/* --- Footer --- */
+.footer-link { transition: color 0.3s ease; }
+.footer-link:hover { color: #ffffff !important; text-decoration: underline !important; }
+.social-icon { transition: all 0.3s ease; }
+.social-icon:hover { color: var(--accent-color) !important; transform: scale(1.1); }
 
 
 /* --- Carousel Overlay --- */
 .bg-dark-overlay {
-background-color: rgba(0, 0, 0, 0.5);
-border-radius: 0.5rem;
-padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
 }
 
 
-/* --- Botón Flotante de WhatsApp --- */
+/* --- Botón Flotante WhatsApp --- */
 .whatsapp-flotante {
-position: fixed;
-bottom: 25px;
-right: 25px;
-background-color: #25D366;
-color: white;
-width: 60px;
-height: 60px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 2rem;
-box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-z-index: 1050;
-transition: all 0.3s ease;
-animation: pulse 2s infinite;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1050;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
 }
 
 .whatsapp-flotante:hover {
-transform: scale(1.1);
-box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-animation: none;
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  animation: none;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 
-/* Animación de Pulso */
-@keyframes pulse {
-0% { transform: scale(1); }
-50% { transform: scale(1.05); }
-100% { transform: scale(1); }
+/* --------------------------------
+IMÁGENES UNIFORMES (NUEVO BLOQUE)
+----------------------------------- */
+
+/* Tarjetas (menú, especialidades, etc.) */
+.card-img-top {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Carrusel principal / galería */
+.carousel-item img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Imágenes en secciones generales (about, gallery, etc.) */
+.about-summary img,
+.gallery-section img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Ajuste del logo */
+.navbar-logo {
+  height: 60px;
+  width: auto;
+}
+
+/* Responsividad extra para móviles */
+@media (max-width: 768px) {
+  .card-img-top { height: 200px; }
+  .carousel-item img { height: 300px; }
+  .about-summary img, .gallery-section img { height: 250px; }
 }
