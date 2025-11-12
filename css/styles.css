@@ -1,230 +1,234 @@
 /* --------------------------------
-   Variables Globales y Fuentes
+Variables Globales y Fuentes
 ----------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap');
+
+/* * CAMBIO AÑADIDO:
+ * Se importa 'Cinzel' para la fuente elegante del logo/brand.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap');
+
 
 :root {
-    --primary-color: #007bff; /* Azul brillante, inspirado en la bandera */
-    --secondary-color: #212529; /* Negro/Gris oscuro para texto, del logo */
-    --light-bg: #f8f9fa; /* Un gris muy claro, casi blanco */
-    --accent-color: #fcd116; /* Amarillo/Dorado del sol */
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Lato', sans-serif;
+
+/* Paleta de colores rústica/uruguaya (ACTUALIZADA POR EL USUARIO) */
+
+--primary-color: #3288ff; /* Celeste de la bandera */
+--secondary-color: #212529; /* Negro/Gris oscuro para texto */
+--light-bg: #f8f9fa; /* Un gris muy claro, casi blanco */
+--accent-color: #fcd116; /* Amarillo/Dorado del sol de la bandera */
+
+--font-heading: 'Montserrat', sans-serif;
+--font-body: 'Lato', sans-serif;
+--font-brand: 'Cinzel', serif; /* Fuente elegante para el brand */
+
 }
 
-body {
-    font-family: var(--font-body);
-    color: var(--secondary-color);
-    background-color: #ffffff; /* Fondo blanco limpio */
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-}
 
 /* --------------------------------
-   Estilos de Bootstrap (Overrides)
+Estilos Generales y Responsividad
 ----------------------------------- */
+
+body {
+font-family: var(--font-body);
+color: var(--secondary-color);
+background-color: #ffffff; 
+}
+
+/* Ajuste de fuentes responsivo (solicitado por el usuario) */
+h1, .h1, h2, .h2, h3, .h3 {
+font-family: var(--font-heading);
+font-weight: 700;
+}
+
+/* Clases de display más grandes en móviles */
+@media (max-width: 768px) {
+.display-3 { font-size: 2.5rem; }
+.display-4 { font-size: 2.25rem; }
+.display-5 { font-size: 2rem; }
+}
+
+
+
+/* --------------------------------
+Estilos de Bootstrap (Overrides)
+----------------------------------- */
+
 .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    padding: 0.75rem 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+background-color: var(--primary-color);
+border-color: var(--primary-color);
+padding: 0.75rem 1.5rem;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+transition: all 0.3s ease;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .btn-primary:hover {
-    background-color: #005ec2; /* Un azul un poco más oscuro */
-    border-color: #005ec2;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+background-color: #1a61c5; /* Celeste más oscuro */
+border-color: #1752a3;
+transform: translateY(-3px); /* Efecto hover solicitado */
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .btn-outline-light:hover {
-    color: var(--dark-bg);
+background-color: #ffffff;
+color: var(--secondary-color);
 }
 
-.bg-primary {
-    background-color: var(--primary-color) !important;
+/* Inputs de formulario mejorados */
+.form-control:focus, .form-select:focus {
+border-color: var(--primary-color);
+box-shadow: 0 0 0 0.25rem rgba(50, 136, 255, 0.25); /* Sombra con el color celeste */
 }
 
 .text-primary {
-    color: var(--primary-color) !important;
+color: var(--primary-color) !important;
 }
 
+.bg-primary {
+background-color: var(--primary-color) !important;
+}
+
+.text-accent {
+color: var(--accent-color) !important;
+}
+
+
 /* --------------------------------
-   Componentes Personalizados
+Componentes Personalizados
 ----------------------------------- */
 
+
 /* --- Navbar --- */
+
 .navbar-brand {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    display: flex; /* Para alinear el logo y el texto */
-    align-items: center;
+/*
+ * CAMBIO AÑADIDO:
+ * Se aplica la fuente elegante solicitada.
+ */
+font-family: var(--font-brand);
+font-weight: 700;
+font-size: 1.75rem; /* Un poco más grande para la nueva fuente */
 }
 
 .navbar-logo {
-    height: 40px; /* Ajusta el tamaño del logo en el navbar */
-    width: auto;
-    margin-right: 0.5rem;
-    transition: transform 0.3s ease; /* <-- Transición añadida */
+height: 40px;
+width: auto;
 }
 
-.navbar-logo:hover { /* <-- Bloque añadido */
-    transform: scale(1.05);
+/* Menú lateral (Offcanvas) */
+.offcanvas {
+max-width: 80%;
 }
 
-.navbar .nav-link {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    position: relative; /* <-- Añadido para el trazo */
-    transition: color 0.3s ease; /* <-- Transición añadida */
+@media (min-width: 992px) {
+/* Oculta el offcanvas en escritorio, usa el colapso normal */
+.offcanvas-lg {
+display: none;
+}
+.navbar-collapse.collapse {
+display: flex !important;
+}
 }
 
-.navbar .nav-link:hover { /* <-- Bloque añadido */
-    color: var(--accent-color) !important;
+@media (max-width: 991.98px) {
+/* Oculta el menú normal en móvil, usa el botón de offcanvas */
+.navbar-collapse {
+display: none !important;
 }
-
-.navbar .nav-link::after { /* <-- Bloque añadido (efecto trazo) */
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease;
-}
-
-.navbar .nav-link:hover::after { /* <-- Bloque añadido */
-    width: 100%;
 }
 
 
-.navbar .nav-link.active {
-    color: var(--accent-color) !important; /* Amarillo del sol para destacar */
-}
-
-/* --- Hero Section (Landing) --- */
+/* --- Hero Section (index.html) --- */
 .hero-section {
-    min-height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('https://placehold.co/1920x1080/007bff/ffffff?text=Gran+Parrillada+Uruguaya') no-repeat center center;
-    background-size: cover;
-    position: relative;
+min-height: 80vh;
+background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../resources/img/hero-background-parrilla.jpg') no-repeat center center;
+background-size: cover;
 }
 
-/* --- Page Headers (Otras páginas) --- */
+
+/* --- Page Header (about, menu, contactus) --- */
 .page-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('https://placehold.co/1920x400/007bff/ffffff?text=Posta+Uruguaya') no-repeat center center;
-    background-size: cover;
+padding: 6rem 0;
+background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../resources/img/header-background-madera.jpg') no-repeat center center;
+background-size: cover;
+background-attachment: fixed; /* Efecto parallax */
 }
 
-/* --- Tarjeta de Producto (Menú) --- */
-.product-card {
-    transition: all 0.3s ease;
-    border: none;
+
+/* --- Tarjetas (Dinamismo solicitado) --- */
+.card {
+border: none;
+transition: all 0.3s ease;
 }
 
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important;
+.card-hover:hover {
+transform: translateY(-8px); /* Efecto hover solicitado */
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* --- Animación Iconos Features (Landing) --- */ /* <-- Bloque añadido */
-.card .bi {
-    transition: all 0.3s ease;
+.product-card img {
+height: 250px;
+object-fit: cover; /* Asegura que la imagen llene el espacio */
 }
 
-.card:hover .bi {
-    transform: scale(1.1);
+
+/* --- Footer (Dinamismo solicitado) --- */
+.footer-link {
+transition: color 0.3s ease;
+}
+.footer-link:hover {
+color: #ffffff !important;
+text-decoration: underline !important;
+}
+.social-icon {
+transition: all 0.3s ease;
+}
+.social-icon:hover {
+color: var(--accent-color) !important;
+transform: scale(1.1);
 }
 
-/* --- Overlay Carrusel --- */
+
+/* --- Carousel Overlay --- */
 .bg-dark-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 0.5rem;
-    padding: 1rem;
+background-color: rgba(0, 0, 0, 0.5);
+border-radius: 0.5rem;
+padding: 0.5rem 1rem;
 }
 
-/* --- Botón Flotante WhatsApp (Contexto.docx) --- */
+
+/* --- Botón Flotante de WhatsApp --- */
 .whatsapp-flotante {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366; /* Color oficial de WhatsApp */
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 1050;
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite; /* <-- Animación de pulso añadida */
+position: fixed;
+bottom: 25px;
+right: 25px;
+background-color: #25D366;
+color: white;
+width: 60px;
+height: 60px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 2rem;
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+z-index: 1050;
+transition: all 0.3s ease;
+animation: pulse 2s infinite;
 }
 
 .whatsapp-flotante:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-    animation: none; /* <-- Detiene el pulso al pasar el ratón */
+transform: scale(1.1);
+box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+animation: none;
 }
 
-/* --- Animación de Pulso --- */ /* <-- Bloque añadido */
+
+/* Animación de Pulso */
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* --- Footer --- */
-footer a.text-white-50 { /* <-- Añadido */
-    transition: color 0.3s ease;
-}
-
-footer a.text-white-50:hover {
-    color: #ffffff !important;
-    text-decoration: underline !important;
-}
-
-.fs-4 a { 
-    transition: all 0.3s ease;
-}
-
-.fs-4 a:hover { /* <-- Bloque añadido */
-    transform: scale(1.1);
-    /* Se quitó el color: #ffffff !important; */
-}
-
-/* --- Colores de marca para iconos sociales --- */ /* <-- Bloque añadido */
-.fs-4 a:hover .bi-facebook {
-    color: #1877F2;
-     /* Color de Facebook */
-}
-.fs-4 a:hover .bi-instagram {
-    color: #E4405F; /* Color de Instagram */
-}
-.fs-4 a:hover .bi-tripadvisor {
-    color: #34E0A1; /* Color de Tripadvisor */
-}
-
-.footer-logo {
-    height: 80px; /* Ajusta el tamaño del logo en el footer */
-    width: auto;
+0% { transform: scale(1); }
+50% { transform: scale(1.05); }
+100% { transform: scale(1); }
 }

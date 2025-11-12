@@ -13,70 +13,97 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="resources/img/pu_logo.png" alt="Logo Posta Uruguaya" class="navbar-logo me-2">
+                <img src="resources/logo/pu_logo.png" alt="Logo Posta Uruguaya" class="navbar-logo me-2">
                 <strong>Posta Uruguaya</strong>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="acerca.html">Acerca de</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="menu.html">Menú</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
-                    </li>
-                </ul>
-                <a href="#" class="btn btn-primary ms-lg-3" data-bs-toggle="modal" data-bs-target="#reservaModal">Reservar Mesa</a>
+            
+            <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Posta Uruguaya</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto text-center text-lg-start">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="about.html">Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactus.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary ms-lg-3 mt-3 mt-lg-0 w-100 w-lg-auto" data-bs-toggle="modal" data-bs-target="#reservaModal">Reservar Mesa</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
     <header class="page-header text-center text-white py-5">
         <div class="container">
             <h1 class="display-4 fw-bold">Nuestra Historia</h1>
-            <p class="lead">Pasión por la parrilla, tradición en cada plato.</p>
+            <p class="lead">Pasión por el fuego, respeto por la tradición.</p>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container my-5">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="https://placehold.co/600x400/553a2a/ffffff?text=Fundador+del+Restaurante" 
-                     class="img-fluid rounded shadow-lg" 
-                     alt="Fundador del restaurante"
-                     onerror="this.src='https://placehold.co/600x400/cccccc/ffffff?text=Error+cargando+imagen'">
+        <section class="mb-5">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-5">El Legado de la Parrilla</h2>
+                    <p class="lead">Nacimos del amor por la auténtica parrilla uruguaya, un ritual que es mucho más que comida: es reunión, es familia, es tradición. </p>
+                    <p>"Posta Uruguaya" comenzó como un sueño de traer ese rincón de Montevideo a León, un lugar donde el tiempo pasa más lento y el sabor del asado es el protagonista. Usamos solo leña, paciencia y los mejores cortes de carne, tal como nos enseñaron nuestros abuelos.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="resources/img/parrillero-accion.jpg" class="img-fluid rounded shadow-lg" alt="Parrillero trabajando en la parrilla" onerror="this.src='resources/img/placeholder-600x400.jpg'">
+                </div>
             </div>
-            <div class="col-lg-6">
-                <h2>El Corazón de <strong>Posta Uruguaya</strong></h2>
-                <p class="lead">Nacimos de un sueño simple: traer a León el auténtico sabor de la parrilla uruguaya, ese que se comparte en familia, que une amigos y que celebra la vida.</p>
-                <p>No somos solo un restaurante, somos un punto de encuentro. "Posta" en Uruguay significa "la verdad", "lo auténtico". Y esa es nuestra promesa: comida honesta, ingredientes de primera y un servicio que te hace sentir en casa.</p>
-                <hr>
-                <h4>Nuestra Filosofía</h4>
-                <ul class="list-unstyled fs-5">
-                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Calidad:</strong> Solo los mejores cortes llegan a nuestra parrilla.</li>
-                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Tradición:</strong> Respetamos las recetas y técnicas que nos definen.</li>
-                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Hospitalidad:</strong> Tu mesa está lista, te estábamos esperando.</li>
-                </ul>
-                <a href="menu.html" class="btn btn-primary mt-3">Conoce Nuestro Menú</a>
+        </section>
+
+        <section class="text-center bg-light p-5 rounded">
+            <h2 class="display-5 mb-4">Nuestros Pilares</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm card-hover p-3 text-center border-0">
+                        <div class="card-body">
+                            <i class="bi bi-fire display-3 text-primary mb-3"></i>
+                            <h5 class="card-title">Calidad</h5>
+                            <p class="card-text">Seleccionamos solo los mejores cortes. La calidad no es negociable, es nuestra promesa.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm card-hover p-3 text-center border-0">
+                        <div class="card-body">
+                            <i class="bi bi-people-fill display-3 text-primary mb-3"></i>
+                            <h5 class="card-title">Hospitalidad</h5>
+                            <p class="card-text">Queremos que te sientas en casa. Nuestro servicio es cálido, cercano y siempre atento.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm card-hover p-3 text-center border-0">
+                        <div class="card-body">
+                            <i class="bi bi-sun-fill display-3 text-accent mb-3"></i>
+                            <h5 class="card-title">Tradición</h5>
+                            <p class="card-text">Respetamos las técnicas ancestrales de la parrilla uruguaya, cocinando lento y con leña.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-dark text-white py-5">
         <div class="container">
             <div class="row">
@@ -87,10 +114,10 @@
                 <div class="col-md-4 mb-3">
                     <h5>Enlaces Rápidos</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-white-50 text-decoration-none">Inicio</a></li>
-                        <li><a href="about.html" class="text-white-50 text-decoration-none">Acerca de</a></li>
-                        <li><a href="menu.html" class="text-white-50 text-decoration-none">Menú</a></li>
-                        <li><a href="contactus.html" class="text-white-50 text-decoration-none">Contacto</a></li>
+                        <li><a href="index.html" class="text-white-50 text-decoration-none footer-link">Inicio</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none footer-link">Acerca de</a></li>
+                        <li><a href="menu.html" class="text-white-50 text-decoration-none footer-link">Menú</a></li>
+                        <li><a href="contactus.html" class="text-white-50 text-decoration-none footer-link">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -98,12 +125,12 @@
                     <ul class="list-unstyled text-white-50">
                         <li><i class="bi bi-geo-alt-fill me-2"></i>Av. Siempre Viva 123, León</li>
                         <li><i class="bi bi-telephone-fill me-2"></i>+52 477 123 4567</li>
-                        <li><i class="bi bi-envelope-fill me-2"></i>reservas@postauruguaya.com</li>
+                        <li><i class="bi bi-envelope-fill me-2"></i>contacto@postauruguaya.com</li>
                     </ul>
                     <div class="fs-4">
-                        <a href="#" class="text-white-50 me-3"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-white-50 me-3"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-white-50"><i class="bi bi-tripadvisor"></i></a>
+                        <a href="#" class="text-white me-3 social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3 social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white social-icon"><i class="bi bi-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -112,18 +139,16 @@
         </div>
     </footer>
 
-    <!-- Botón Flotante de WhatsApp -->
-    <a href="https://wa.me/524772337271?text=Hola%2C+me+gustaria+ordenar%2C+gracias" class="whatsapp-flotante" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/524771234567" class="whatsapp-flotante" target="_blank" rel="noopener noreferrer">
         <i class="bi bi-whatsapp"></i>
     </a>
 
-    <!-- Modal de Reserva (Copiado de index.html para consistencia) -->
     <div class="modal fade" id="reservaModal" tabindex="-1" aria-labelledby="reservaModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-primary text-white">
                     <h5 class="modal-title" id="reservaModalLabel">Reserva Rápida</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
