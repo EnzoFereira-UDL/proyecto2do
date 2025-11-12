@@ -235,3 +235,30 @@ IMÁGENES UNIFORMES (NUEVO BLOQUE)
   .carousel-item img { height: 300px; }
   .about-summary img, .gallery-section img { height: 250px; }
 }
+
+/* === Efecto de aparición al hacer scroll === */
+.scroll-anim {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-anim.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+        
+/* Estilo para el nav-pills scrollable en móviles */
+.menu-nav-scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.menu-nav-scroll .nav-link {
+    white-space: nowrap;
+}
+/* Ajuste para que el sticky-top funcione con el navbar principal */
+.menu-nav {
+    top: 76px; /* Altura de la navbar principal */
+    z-index: 1019;
+}
